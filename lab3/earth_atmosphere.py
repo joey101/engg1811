@@ -26,7 +26,7 @@ else:
     if altitude <= TROPO:
         print("You are in the Troposphere");
 
-    elif TROPO < altitude <= SIXTY:
+    elif altitude <= SIXTY:
         print("You are in the Stratosphere");
 
     elif SIXTY < altitude <= 120:
