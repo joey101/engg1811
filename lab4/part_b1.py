@@ -25,10 +25,7 @@ print("List Y = ", list_y)
 
 fig1 = plt.figure() # Create the table
 plt.plot(list_x, list_y, 'x') # Plot the axis which i have specified
-
 plt.show() # This prints the actual plot out
-
-
 plt.xlabel('X-axis') # Label for the X- Axis
 plt.ylabel('Y-axis') # Label for the Y- Axis
 fig1.savefig('part_b1.png') # Save theplot as a png
