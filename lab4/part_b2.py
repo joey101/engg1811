@@ -41,4 +41,5 @@ plt.show() # This prints the actual plot out
 
 plt.xlabel('X-axis') # Label for the X- Axis
 plt.ylabel('Y-axis') # Label for the Y- Axis
+
 fig1.savefig('part_b2.png') # Save theplot as a png
