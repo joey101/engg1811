@@ -20,15 +20,12 @@ def extension(function):
         return(e);
 
 # Part C: Task 2
-size_step = 0.7;
-
+size_step = 0.4;
 
 step_size_formula = m.floor(20 / size_step) + 1
 
 force_list = []
 list_dud = []
-list_y = []
-
 
 for i in range(step_size_formula):
     list_dud.append(i);
@@ -37,13 +34,14 @@ for j in list_dud:
     new = j * size_step
     force_list.append(round(new,2));
 
-for num in force_list:
-    list_y.append(extension(num))
-
-
 print(force_list);
 
 
+
+list_y = []
+for num in force_list:
+    list_y.append(extension(num))
+"""
 fig1 = plt.figure() # Create the table
 plt.plot(force_list, list_y , 'x') # Plot the axis which i have specified
 
@@ -53,4 +51,4 @@ plt.show() # This prints the actual plot out
 plt.xlabel('X-axis') # Label for the X- Axis
 plt.ylabel('Y-axis') # Label for the Y- Axis
 fig1.savefig('part_c.png') # Save theplot as a png
-
+"""
