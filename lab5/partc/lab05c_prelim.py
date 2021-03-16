@@ -41,4 +41,10 @@ plt.show()  # to display the graph
 
 # %% Your solution
 ########### PUT YOUR SOLUTION BELOW ###########
-
+count = 0;
+for num in voltage_list:    
+    if num > 3:
+        count = count + 1;
+        
+        
+print("Heartbeats: ", count)
