@@ -4,7 +4,7 @@
 ENGG1811, Lab 05, Part B, Template 
 
 """
-
+import math as m
 # %% Experimental data
 datasets = []
 datasets.append([14.2, 32.5, 42.1, 74.5, 43.5])
@@ -29,7 +29,28 @@ datasets.append([54.7, 25.3])
 #
 # For checking, the expected answers are:
 # [2.84, 6.425, 0.7, 12.65]
+#-------------------------------------------------------------------------
+
+# Finds the smallest number in a data set
+def lowest(data_list):
+    smallest = data_list[0]
+    for num in data_list:
+        if num < smallest:
+            smallest = num
+    return smallest
+# Find the length of each array
+def length(data_list):
+    size = len(data_list)
+    return size
+#------------------------------------------------------------------------- 
+summary_list = [] # Initiating empty list 
+length_list = [] # initiating list length
+ultimate_list = [] # combination of both lists
+for num in datasets:
+    summary_list.append(lowest(num))
+for x in datasets:
+    length_list.append(length(x))
 
 
-
-
+print(summary_list)
+print(length_list)
