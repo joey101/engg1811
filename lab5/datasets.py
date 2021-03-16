@@ -35,22 +35,16 @@ datasets.append([54.7, 25.3])
 def lowest(data_list):
     smallest = data_list[0]
     for num in data_list:
-        if num < smallest:
-            smallest = num
-    return smallest
-# Find the length of each array
-def length(data_list):
-    size = len(data_list)
-    return size
-#------------------------------------------------------------------------- 
+        min_val = min(data_list)
+        length = len(data_list)
+    summary = min_val / length
+    return summary
+#------------------------------------------------------------------------ 
 summary_list = [] # Initiating empty list 
-length_list = [] # initiating list length
-ultimate_list = [] # combination of both lists
+
 for num in datasets:
     summary_list.append(lowest(num))
-for x in datasets:
-    length_list.append(length(x))
-
 
 print(summary_list)
-print(length_list)
+
+
