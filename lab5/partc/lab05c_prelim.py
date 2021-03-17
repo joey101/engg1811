@@ -42,9 +42,13 @@ plt.show()  # to display the graph
 # %% Your solution
 ########### PUT YOUR SOLUTION BELOW ###########
 count = 0;
-for num in voltage_list:    
-    if num > 3:
-        count = count + 1;
+
+for num in range(1, len(voltage_list)):
+    voltage_before = voltage_list[num - 1]
+    voltage_after = voltage_list[num]
+ 
+    if voltage_after >= 3 and  voltage_before < 3:
+        count += 1;
         
         
 print("Heartbeats: ", count)

@@ -33,7 +33,6 @@ datasets.append([54.7, 25.3])
 
 # Finds the smallest number in a data set
 def lowest(data_list):
-    smallest = data_list[0]
     for num in data_list:
         min_val = min(data_list)
         length = len(data_list)
