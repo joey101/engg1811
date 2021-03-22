@@ -1,0 +1,211 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head>
+    <meta http-equiv="content-type" content="text/html; charset=windows-1252">
+    <title>Week 07 Lab ENGG1811</title>
+    <meta name="Author" content="Geoff Whale">
+    <meta name="Organisation" content="The University of New South Wales">
+    <meta name="Department" content="School of Computer Science &amp; Engineering">
+    <meta name="Keywords" content="Matlab functions 3D plotting&gt;
+&lt;meta name=" description"="">
+    <meta name="ReleaseDate" content="2014-05-08">
+    <!-- 
+<LINK rel="stylesheet" href="http://my.unsw.edu.au/styles/myunsw.css" TYPE="text/css" > -->
+    <style>
+h3 { color:darkblue }
+span.redbold { color: rgb(204, 0, 0); font-weight: bold; }
+.red { color: rgb(204, 0, 0); }
+span.eqn { font-family:"Times" }
+span.com { font-style:italic; color: #00A000; }
+td,th { padding-left: 20px; }
+pre { font-size: 14px; text-height: 18px; background-color: #FFFFCC; border:1px solid #C0C0C0; padding:4px; width:60%; }
+li { margin-top: 0.5em; }
+</style> </head>
+  <body>
+    <h2>ENGG1811 Lab 07: numpy data analysis</h2>
+    <h3>Objectives</h3>
+    <p>After completing this lab, students should be able to</p>
+    <ul>
+      <li>Use numpy to solve some data analysis problems </li>
+    </ul>
+    <h3>Assessment</h3>
+    <p>This lab consists of Part A only. </p>
+    <p>You are expected to complete all the parts and show them to your tutor.
+      Remember you must be ready for some assessment <b>half an hour before</b>
+      the end of the class. These two exercises are worth 2 marks. </p>
+    <p> For all the programs, we expect that you choose informative variable
+      names and document your program. There is also an <a target="_blank" href="https://www.cse.unsw.edu.au/~en1811/21T1/lab_assess/index.php">online
+        assessment question </a> which is worth 1 mark. We suggest that you
+      attempt this question after completing both parts. </p>
+    <h3>Getting Started <br>
+    </h3>
+    <p>We suggest that you create a folder called lab07 to keep all the files
+      for this lab. </p>
+    <hr style="height: 2px; color: white;">
+    <h3>Part A: Data analysis using numpy </h3>
+    <p> Among the many data sets used in climate change research, the <a href="http://nsidc.org/data/seaice_index/" target="_blank">Sea
+        Ice Index</a>, or the area covered by sea ice in the northern hemisphere
+      shows particularly marked changes. There are seasonal variations across
+      each year, and trends that span a number of years.&nbsp; </p>
+    <p> The file <a href="https://www.cse.unsw.edu.au/~en1811/21T1/labs/lab07/sea_ice.txt" target="_blank">sea_ice.txt</a>&nbsp;
+      (You can download this file by right clicking on the link, and choose
+      "Download Linked File") contains northern hemisphere total sea ice data,
+      in units of millions of square km, between 1979 and 2013 (i.e., 35 years
+      in total). There are 24 measurements per year, measured once every <span style="font-style: italic;">half
+        a month</span>. The data in <a href="https://www.cse.unsw.edu.au/~en1811/21T1/labs/lab07/sea_ice.txt" target="_blank">sea_ice.txt</a>
+      has 35 rows (one row per year) and 25 columns where the first column
+      contains the year in which the measurements in that row were taken; the
+      half-monthly measurements are stored from the second to the last column.
+      After you have downloaded the file sea_ice.txt, you need to make sure that
+      it is in the directory that you had created earlier. </p>
+    <p>You will need to do a number of pre-processing steps to get the data
+      ready. The steps are shown in the box below with yellow background.&nbsp;
+      One of the first step of data analysis is always to plot the data, so you
+      will do that. </p>
+    You are asked to run these lines one by one and observe the results. The
+    comments will also help you to understand what those commands are doing. <br>
+    <br>
+    <table width="100%" border="1">
+      <tbody>
+        <tr>
+          <td style="width: 70%; background-color: #ffffcc;"><span style="color: #009900;">#
+              Import packages<br>
+              <span style="color: #110104;">import numpy as np<br>
+                import matplotlib.pyplot as plt</span><br>
+              <br>
+              # Load data and store it as a numpy array called data_sea_ice<br>
+              <span style="color: #001000;">data_sea_ice =
+                np.loadtxt(fname="sea_ice.txt")</span><br>
+              <br>
+              # Check the shape of the numpy array <br>
+              <span style="color: #000800;">print("The shape of the numpy array
+                is: ", data_sea_ice.shape)</span><br>
+              <br>
+              # The shape of the array is 35 x 25<br>
+              # number of rows = number of years<br>
+              # Each row has 25 elements: <br>
+              # The first element is the year, followed by 24 measurements per
+              year (i.e. 1 measurement per half a month)<br>
+              <br>
+              # Print out the first row to confirm the data format <br>
+              <span style="color: #000500;">print("The first row of data is \n",
+                data_sea_ice[0,:])</span><br>
+              <br>
+              # We need to move the years into a different variable and then
+              remove the years from the first column <br>
+              <span style="color: #040001;">years =
+                data_sea_ice[:,0];&nbsp;&nbsp; # first column, easy<br>
+                data_sea_ice = np.delete(data_sea_ice, 0, axis=1)&nbsp;</span>&nbsp;
+              # remove the first column <br>
+              <span style="color: #000500;">print("The shape of the numpy array
+                is: ", data_sea_ice.shape)&nbsp;</span> # should be 35 (years) x
+              24 (half-monthly samples)<br>
+              <br>
+              # The following line uses a numpy function to produce the array: </span><span style="color: #009900;"><span style="color: #009900;">array([0.5,
+                1, 1.5, 2, ..., 11.5, 12]) </span></span><br>
+            <span style="color: #009900;"><span style="color: #009900;"><span style="color: #000600;">months
+                  = np.linspace(0.5,12,24) <br>
+                </span></span># We haven't discussed linspace yet but for this
+              lab, it is sufficient for you to know what the contents of the
+              numpy array months are <br>
+              # If you want to know more about the numpy function linspace, </span><span style="color: #009900;"><span style="color: #009900;">its
+                manual page is at</span> <br>
+              #&nbsp;
+https://docs.scipy.org/doc/numpy-1.13.0/reference/generated/numpy.linspace.html#numpy.linspace<br>
+              <br>
+              # plot the data - you should add the xlabel, ylabel, title <br>
+              # You will see 35 curves, each curve depicts the variation of sea
+              ice extents in one year <br>
+              # The seasonal variation should be obvious and don't forget, the
+              data came from the northern hemisphere&nbsp;&nbsp; <br>
+              # You will need to plot more figures later on, so put it in Figure
+              1<br>
+              <span style="color: #001e00;">plt.figure(1)<br>
+                plt.plot(months, np.transpose(data_sea_ice))<br>
+                plt.xticks([2, 4, 6, 8, 10, 12], ["Feb", "Apr", "Jun", "Aug",
+                "Oct", "Dec"])&nbsp; </span></span><span style="color: #009900;"><span style="color: #001e00;"><span style="color: #009900;">#
+                  This shows you how to use xticks <br>
+                </span>plt.show()</span><br>
+            </span></td>
+        </tr>
+      </tbody>
+    </table>
+    <br>
+    The following is a number of questions on the data set which you should
+    answer using numpy. You should <span style="font-weight: bold;">not</span>
+    use any loops. Most questions can be answered with just <span style="font-weight: bold;">
+      one</span> line of Python code. There is no restriction that you must use
+    as few lines of code as possible. You can break the steps up into multiple
+    lines of code if you want, especially for Questions 7 and 8 which have
+    several steps. There is only one restriction: <span style="font-weight: bold;">no
+      loops</span><span style="font-weight: bold;"></span>. <br>
+    <p> You should copy your Python code to a script so that you can show your
+      tutor later on. Another reason is that we will work on this data set again
+      in a later lab. </p>
+    <p>If you want to check your answers, some of them are on <a href="https://www.cse.unsw.edu.au/~en1811/21T1/labs/lab07/lab07_Part_B_checks.html" target="_blank">this
+        page</a>.</p>
+    <ol>
+      <li>Determine the annual average sea ice extent, i.e. for each year,
+        compute the average of all the half-monthly measurements over that year.
+        Store the answer in the variable <span style="font-family: American Typewriter;">avg_sea_ice_annual</span>.
+        You should plot the annual average sea ice extent in Figure 2 to have a
+        look. </li>
+      <li>Determine the average sea ice extent for each half-month, i.e. average
+        over the years for each half-month. </li>
+      <li>Determine the average sea ice extent over the entire data collection.
+        Store the answer in the variable <span style="font-family: American Typewriter;">avg_sea_ice</span>
+        which you will need later.&nbsp;</li>
+      <li>For each year, determine the number of half-months that <span style="font-style: italic;">exceeds</span>
+        the overall average calculated in Question 3.&nbsp;</li>
+      <li>Determine the number of years whose annual average is <span style="font-style: italic;">less</span>
+        than the overall average calculated in Question 3.&nbsp;</li>
+      <li>Determine the number of years, within the last 10 years of data, whose
+        annual average is less than the overall average calculated in Question
+        3. (Note: Questions 5 and 6 together tell you something important about
+        the status of ice extents.) Hint: You have learnt about list slicing in
+        Week 3B. You can slice a numpy array in the same way. This question
+        requires you to slice an array from the end of the array, not the
+        beginning. Check the week 3B lecture where we covered this if you need a
+        refresher. There are also examples from Week 5B. </li>
+      <li>Determine the 10 years that have the lowest 10 annual average sea ice
+        extents. You should arrange the 10 years such that their corresponding
+        annual averages are sorted in ascending order. That is, the first year
+        in the list is the year that has the lowest annual average sea ice
+        extent, the second year has the second lowest annual average and so on.
+        <span style="font-style: italic;">Hint:</span> Use the <span style="font-family: American Typewriter;">numpy.argsort()</span>
+        function (<a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.argsort.html" target="_blank">link
+          to the argsort() manual page</a>) to get a list of sorted indexes.
+        Think about what you want to sort by (one of the variables you made
+        earlier in the problem), use <span style="font-family: American Typewriter;">argsort()
+          </span>on it and then use those indexes on the array <span style="font-family: American Typewriter;">years</span>.
+        If you're confused check out the first example on the <span style="font-family: American Typewriter;">argsort()</span>
+        page and understand what it's doing (the other examples are a bit more
+        complicated). </li>
+      <li>&nbsp;The 2-dimensional array <span style="font-family: American Typewriter;">data_sea_ice</span>
+        contains half-monthly data, but you want to work with monthly data. You
+        want to obtain a 2-dimensional array <span style="font-family: American Typewriter;">sea_ice_monthly
+          </span>which contains monthly data. The matrix should have 35 rows and
+        12 columns. Column 1 contains the average of the two measurements in
+        January, Column 2 for February, etc. The problem is to compute <span style="font-family: American Typewriter;">sea_ice_monthly</span>
+        from <span style="font-family: American Typewriter;">data_sea_ice</span>
+        without using any loops. You may find the <span style="font-family: American Typewriter;">reshape</span>
+        function useful. If you want some hints, click <a href="https://www.cse.unsw.edu.au/~en1811/21T1/labs/lab07/hint07.html" target="_blank">here</a>.
+      </li>
+    </ol>
+    <hr style="height: 3px; color: white;">
+    <p><b>At the End of the Lab</b> </p>
+    <p style="color: rgb(0, 0, 0); font-family: -webkit-standard; font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px;">You
+      should be able to show your tutor your solution to the exercises. You
+      should be comfortable with <span class="Apple-converted-space">writing
+        function with default parameter values and numpy. <br>
+      </span></p>
+    <p style="color: rgb(0, 0, 0); font-family: -webkit-standard; font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px;">Finally,
+      do not forget to complete your online multiple choice question if you have
+      not done it yet.&nbsp;<span class="Apple-converted-space">&nbsp;</span></p>
+    <p style="color: rgb(0, 0, 0); font-family: -webkit-standard; font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px;">If
+      you have completed everything, please do not forget to logout. Simply
+      double click on the "Log Out" icon</p>
+    <ol>
+    </ol>
+  
+
+</body></html>

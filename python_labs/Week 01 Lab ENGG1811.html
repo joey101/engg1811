@@ -1,0 +1,127 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head>
+    <meta http-equiv="content-type" content="text/html; charset=windows-1252">
+    <title>Week 01 Lab ENGG1811</title>
+    <meta name="GENERATOR" content="OpenOffice.org 2.0  (Win32)">
+    <meta name="AUTHOR" content="Ashesh Mahidadia">
+    <meta name="CREATED" content="20090312;20064328">
+    <meta name="CHANGED" content="20090312;21314331">
+    <meta name="Organisation" content="The University of New South Wales">
+    <meta name="Department" content="School of Computer Science &amp; Engineering">
+    <meta name="ReleaseDate" content="2011-07-19">
+    <meta name="RevisedDate" content="2015-03-03">
+    <link href="Week%2001%20Lab%20ENGG1811_files/labs.html" rel="stylesheet">
+    <link href="Week%2001%20Lab%20ENGG1811_files/css.css" rel="stylesheet">
+  </head>
+  <body style="      padding: 20px 80px;">
+    <h2>ENGG1811 Lab 01: Introduction to the CSE computer environment, Spyder
+      and Python</h2>
+    <h3>Objectives</h3>
+    <p>In this first lab you will get familiar with "Spyder", 
+       an open source cross-platform integrated
+      development environment (IDE) for scientific programming in the Python
+      language. You will also learn how to use arithmetic operators in Python. </p>
+    <p>There are no marks for this lab. </p>
+<p>We suggest that you install the software "Anaconda for Python 3.7" on
+ your laptop. Instructions for installing this software can be found at 
+the <a target="_blank" href="http://www.cse.unsw.edu.au/~en1811/resources/getting-started/index.html">"Getting Started"</a> link on the course website.</p>
+
+    <hr size="1">
+    <h3>Demo by Tutor: Spyder and Python arithmetic operators&nbsp; </h3>
+    Your tutor will introduce "Spyder" and discuss the important features
+    relevant to the course. Spyder is an open source cross-platform integrated
+    development environment (IDE) for scientific programming in the Python
+    language.
+    <p> Your tutor will <b>demonstrate</b> and explain how to use the Python
+      arithmetic operators ( + - * / // % **) to do some calculations. Please
+      pay special attention to <b><i>the rules of precedence</i></b>. You
+      should read the following notes on this topic: <a href="https://www.cse.unsw.edu.au/~en1811/21T1/labs/lab01/RulesOfPrecedence.pdf">The
+        Rules of Precedence</a>. If you have any questions, feel free to ask
+      your tutor! </p>
+    <p> Now, get ready to solve the following exercise! </p>
+    <hr size="1">
+    <h3>Exercise 1: Using the iPython console and precedence </h3>
+    <p>In this exercise you will use the Python arithmetic operators, which are
+      + - * / // % **, to do some calculations. If you cannot remember what they
+      mean, you can consult the notes on <a href="https://www.cse.unsw.edu.au/~en1811/21T1/labs/lab01/RulesOfPrecedence.pdf">The
+        Rules of Precedence</a>. In this exercise, you want you to use <b>as
+        few parentheses</b> as possible in the Python arithmetic expressions.
+      For example, you will get the same answer by using these two Python
+      expressions: 1 + 2 * 3 and 1 + (2 * 3) but the parentheses in the second
+      expression are unnecessary. In order to determine whether parentheses are
+      necessary, you will need to apply the rules of precedence. </p>
+    <p>The first calculation that you want to do is to compute:</p>
+    <div style="text-align: center;"><img src="Week%2001%20Lab%20ENGG1811_files/cal1.png" alt=""></div>
+    <p><br>
+    </p>
+    <p><b>Type</b> a Python expression into the console that can compute this
+      quantity. You should <b>verify</b> that the Python expression gives the
+      correct value. <b>Determine</b> if you have used any unnecessary
+      parentheses in your expression; if there are, we ask you to remove them.
+      We want you to use <b>as few parentheses</b> as possible in your
+      expression. This is to test whether you understand the concept of
+      precedence. </p>
+    <p>The second calculation is: </p>
+    <p style="text-align: center;"><img src="Week%2001%20Lab%20ENGG1811_files/cal2.png" alt=""> </p>
+    You should use <b>as few parentheses</b> as possible in your Python
+    expression. <br>
+    <p>Note that the expressions that you type into the console will be saved in
+      a log. If you click on the "History log" tab (see picture below), you will
+      see the expressions that you have entered into the console. When you want
+      to show the tutor your work, you can copy the expression from the log and
+      paste it into the console. If you want to get back to the console, you
+      should click the "iPython console" tab. </p>
+    <p> <img src="Week%2001%20Lab%20ENGG1811_files/console-history.png" alt=""></p>
+    <hr style="height: 1px; color: white;">
+    <h3>Exercise 2: Using the iPython console for calculations </h3>
+    <p>Our default concept on birthday is that it is annual. If you go to the
+      website <a href="https://www.timeanddate.com/date/birthday.html" target="_blank">https://www.timeanddate.com/date/birthday.html</a>
+      on alternative birthday calculator, you can calculate when your 1 billion
+      second birthday, 1 million minute birthday etc. will be. Quantities such
+      as 1 billion seconds are hard to comprehend for most of us. However, if we
+      tell you 1 billion seconds is approximately 31 years and 259 days
+      (assuming each year has 365 days, i.e. ignoring leap years) then you
+      probably feel a bit more comfortable. A comforting news for most of you is
+      that you haven't missed your 1 billion second birthday and there is plenty
+      of time to plan a big bash for that auspicious second!&nbsp; </p>
+    <p>We are interested to express 1,000,000 (1 million) minutes in terms of
+      years, days, hours and minutes. For this exercise, we would like you to
+      work out the number of complete years and complete days in 1 million
+      minutes. We impose the following assumptions and restrictions:</p>
+    <ul>
+      <li>One year has 365 days, one day has 24 hours and one hour has 60
+        minutes. We ignore leap years. </li>
+      <li>There are two answers to the exercise: the number of complete years
+        and days. You must compute each answer using only one line of Python
+        code in the iPython console. The line of code can only contain the
+        numbers 1000000, 365, 24 and 60; no other numbers are allowed. </li>
+      <li>You can use any Python arithmetic operators + - * / // % ** that you
+        think is appropriate. In particular, you will find // and % helpful. If
+        you cannot remember what they do, you can look at page 14 of the lecture
+        slides. Sometimes it may be helpful to type in a few small test
+        expressions to confirm your understanding. For example, you type in 20
+        // 7 and obtain the output 2, then you think about whether the output is
+        what you would expect and why. </li>
+      <li>You may also use parentheses. </li>
+    </ul>
+    <p>If you want to check whether your calculated number of years and days are
+      correct, you can check the answers <a href="https://www.cse.unsw.edu.au/~en1811/21T1/labs/lab01/lab01_answers.html" target="_blank">here</a>.
+    </p>
+    <p></p>
+    <hr style="height: 1px; color: white;">
+    <hr size="1">
+    <p></p>
+    <h3>At the End of the Lab</h3>
+    <p></p>
+    <p>You should be able to show your tutor the above exercises. You should be
+      familiar the CSE computer environment and comfortable using Spyder, as
+      discussed in the lab. </p>
+    <p>If you have completed everything, please do not forget to logout. Simply
+      double click on the "Log Out" icon</p>
+    <p></p>
+    <p align="CENTER"><br>
+      <br>
+    </p>
+  
+
+</body></html>

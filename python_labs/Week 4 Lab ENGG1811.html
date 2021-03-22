@@ -1,0 +1,336 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head>
+    <meta http-equiv="content-type" content="text/html; charset=windows-1252">
+    <title>Week 4 Lab ENGG1811</title>
+    <meta name="Author" content="Geoff Whale">
+    <meta name="Organisation" content="The University of New South
+      Wales">
+    <meta name="Department" content="School of Computer Science &amp;
+      Engineering">
+    <meta name="Keywords" content="">
+    <meta name="Description" content="OpenOffice Basic lab: Functions
+      and Selection">
+    <meta name="ReleaseDate" content="2011-04-07">
+    <meta name="ModifiedDate" content="2014-04-01">
+    <!-- 
+<LINK rel="stylesheet" href="http://my.unsw.edu.au/styles/myunsw.css" TYPE="text/css" > -->
+    <style>
+h3 { color:darkblue }
+span.redbold { color: rgb(204, 0, 0); font-weight: bold; }
+.eqn { font-family:"Times" }
+.span.comment { color: rgb(0, 204, 0); font-style:italic; }
+.span.key { color: rgb(0, 0, 204); font-weight: bold; }
+</style>
+  </head>
+  <body>
+    <h2>ENGG1811 Lab 04: Function, list, for and plotting </h2>
+    <h3>Objectives</h3>
+    <p>After completing this lab, students should be able to</p>
+    <ul>
+      <li>Write functions </li>
+      <li>Define a list and do operations on a list </li>
+      <li>Use for-loop on lists and range </li>
+      <li>Plotting graph </li>
+    </ul>
+    <h3>Assessment</h3>
+    <p>This lab consists of Parts A,&nbsp; B and C. </p>
+    <p>You are expected to complete all the three parts and show them to
+      your tutor. Remember you must be ready for some assessment <b>half
+
+
+        an hour before</b> the end of the class.  </p>
+    <p>For all the programs, we expect that you choose informative
+      variable names and document your program. There is also an <a target="_blank" href="https://www.cse.unsw.edu.au/~en1811/21T1/lab_assess/index.php">online
+        multiple choice question</a> which is worth 1 mark. We suggest
+      that you attempt this question after completing all three parts. </p>
+    <h3>Getting Started <br>
+    </h3>
+    <p>We suggest that you create a folder called lab04 to keep all the
+      files for this lab. </p>
+    <p></p>
+    <hr style="height: 2pt; color: white;">
+    <h3><b>Part A: Functions </b></h3>
+    <p>This part consists of 2 tasks. Note that Task 2 is a continuation
+      of Task 1, so you need to do them in order. </p>
+    <p><u>Task 1</u></p>
+    <p>Consider the following mathematical function <i>H(z,a)</i>: </p>
+    <div style="text-align: center;"><img src="Week%204%20Lab%20ENGG1811_files/ratio_new.png" alt="" width="82" height="70"></div>
+    <p><br>
+      where <i>z</i> and <i>a</i> are mathematical variable of the
+      function <i>H(z,a)</i>. In this Task, you are asked to write a
+      Python function to compute <i>H(z,a)</i>. </p>
+    <p>The Python function that you need to write has the following <span style="font-family: American Typewriter;">def</span> line:</p>
+    <div style="text-align: left;"><span style="font-family: American
+        Typewriter;">def proportion(z,a):</span> </div>
+    <p>where the Python variables <span style="font-family: American
+        Typewriter;">z</span> and <span style="font-family: American
+        Typewriter;">a</span> correspond to the mathematical symbols of
+      the same name. This function should return one output which is the
+      value of <i>H(z,a)</i>. For example, if you call the function in
+      the statement:</p>
+    <p><span style="font-family: American Typewriter;">p =
+        proportion(2,6)</span> </p>
+    <p>then the Python variable <span style="font-family: American
+        Typewriter;">p</span> takes on the value of 0.25. You can use
+      this template file <a href="https://www.cse.unsw.edu.au/~en1811/21T1/labs/lab04/lab04_a.py" target="_blank">lab04_a.py</a>
+      (note: right click to download) to get you started. The file has a
+      few test cases that you can use to check your program. </p>
+    <p><i>Hint</i>: You can consult the Python program my_power.py
+      (discussed in Week 2's lecture) which uses 2 inputs and returns
+      one output. </p>
+    <p><u>Task 2</u></p>
+    <p>In this task, you are asked to write a Python function which
+      computes the the mathematical function <i>G(x,b,y,c)</i>:</p>
+    <div style="text-align: center;"><img src="Week%204%20Lab%20ENGG1811_files/func_g.png" alt=""></div>
+    <p>where <i>x</i>,&nbsp; <i>b</i>,&nbsp; <i>y</i> and <i>c</i>
+      are mathematical variables of the function <i>G(x,b,y,c)</i>. In
+      this Task, you are asked to write a Python function to compute <i>G(x,b,y,c)</i>.</p>
+    <p>The Python function that you need to write has the following <span style="font-family: American Typewriter;">def</span> line: </p>
+    <div style="text-align: left;"><span style="font-family: American
+        Typewriter;">def two_proportions(x,b,y,c):</span> <br>
+    </div>
+    <p>where the Python variables <span style="font-family: American
+        Typewriter;">x, b, y</span> and <span style="font-family:
+        American Typewriter;">c</span> correspond to the mathematical
+      symbols of the same name. This function should return <b>three</b>
+      outputs, in this specific order: <i><br>
+      </i></p>
+    <ul>
+      <li><i>G(x,b,y,c)</i></li>
+      <li>the ratio of <i>x</i> to <i>(x+b)</i></li>
+      <li>the ratio of <i>c</i> to <i>(y+c)</i></li>
+    </ul>
+    For example, if you call the function in the line:
+    <p><span style="font-family: American Typewriter;">g, r1, r2 = </span><span style="font-family: American Typewriter;"><span style="font-family: American Typewriter;">two_proportions</span>(2,6,5,35)</span>
+      <br>
+    </p>
+    <p>then the Python variables <span style="font-family: American
+        Typewriter;">g, r1 </span>and<span style="font-family: American
+        Typewriter;"> r2</span> take on the value of, respectively,
+      0.21875, 0.25 and 0.875. </p>
+    <p>You may notice there are some similarities between the expression
+      of <i>G(x,b,y,c)</i> and <i>H(z,a)</i>.&nbsp; For this task, we
+      impose the requirement that your function <span style="font-family: American Typewriter;">two_proportions() </span>must
+
+
+      call the function <span style="font-family: American Typewriter;">proportion()</span>.
+      The purpose is for you to practice calling a function from another
+      function. </p>
+    <p>You can complete this task in the file lab04_a.py. </p>
+    <p><i>Hint:</i> You can use the Python program my_power3_improved.py
+      (discussed in Week 2's lecture) as a guide. This program shows you
+      how to returns multiple outputs as well as to call a function
+      within another function. </p>
+    <hr style="height: 2pt; color: white;">
+    <h3>Part B: range(), list manipulations, list comprehension,
+      plotting</h3>
+    <p>We suggest that you complete Tasks 1 and 3 in two separate files.
+      Task 2 can be completed at the console. &nbsp; <u><br>
+      </u></p>
+    <p><u>Task 1</u></p>
+    <p>You want to do a plot where the data in the horizontal axis is [2
+      4 6 8 10 12] and the data in the y-axis is [4 16 36 64 100 144].
+      You can see that the data in the y-axis is the square of the
+      number in the x-axis. Use range() and list comprehension to
+      generate these two lists, and then make the plot.</p>
+    <p>Hints: </p>
+    <ul>
+      <li>range() is discussed in of Week 3A's lecture notes and in the
+        example program range_ex.py in code_prelim_3A<br>
+      </li>
+      <li>Examples of list comprehension are at the end of the file
+        create_list_with_comprenhension.py in code_prelim_3B</li>
+      <li>An example of plot() is in plot_demo.py which was discussed in
+        Week 2. Don't forget to import the library. </li>
+      <li>Check your values in the graph and make sure you have plotted
+        the whole range. If the x values stop at 10, think about your
+        range function</li>
+    </ul>
+    <p><u>Task 2</u></p>
+    <p>Type the following expressions into the console. Your aim is to
+      figure out what the * and + operators do to a list. You can try
+      some other similar expressions. </p>
+    <img src="Week%204%20Lab%20ENGG1811_files/console_list.png">
+    <p><u>Task 3</u></p>
+    <p>You want to do a plot where the data in the horizontal axis is [0
+      1 2 3 4 5 6 7] and the data in the y-axis is [3 3 3 3 3 3 3 3].
+      You can use range() to generate the former list. For the latter
+      list, you should use what you have discovered in Task 2 and use
+      the shortest expression that you can think of; you must <b>not</b>
+      use list comprehension or for-loop for this. After generating the
+      lists, plot the graph. </p>
+    <p><i>Note</i>: Sometimes you may need to plot a horizontal or
+      vertical line to indicate a threshold or limit. The aim of Task 3
+      is to get you to think about how you can do that. </p>
+    <h3></h3>
+    <hr style="height: 3pt; color: white;">
+    <h3>Part C: Function, for and plotting</h3>
+    <p>We did a project in the lecture on calculating the free fall
+      speeds and plotting them on a graph. This part is similar to the
+      project. </p>
+    <p>An engineer has derived a relationship between the force applied
+      to a material and the extension in length that the force would
+      cause. The relationship between force <i>f</i> and extension <i>e</i>
+      is given by:</p>
+    <img src="Week%204%20Lab%20ENGG1811_files/force_ext.png" alt="" width="30%">
+    <p>You are asked to plot a graph showing the relationship between
+      force and extension. You are asked to complete the following
+      tasks:</p>
+    <p><u>Task 1</u></p>
+    <p>Write a Python function which returns the value of e for a given
+      input f. Do not use literals (e.g. 5.5, 10) in the expressions for
+      e in the function. Instead you should define constants and use
+      them. </p>
+    <p>Note that the relationship between e and f depends on whether f
+      is bigger than 10 or not, this means you need a certain Python
+      construction in your function. If you can't think of that, have a
+      look at Part A of Lab03. </p>
+    <u>Task 2<br>
+    </u>
+    <p>The aim of this task is to specify a list of values which are the
+      values of force f that you will be using for plotting. These
+      values are to be stored in a Python list called force_list. We
+      impose these requirements on force_list:</p>
+    <ul>
+      <li>The first entry for force_list is 0. </li>
+      <li> The entries in force_list are all integral multiples of a
+        parameter called step_size. </li>
+      <li>The last entry must be less than or equal to 20, which is the
+        upper limit for the force. </li>
+      <li>The difference between the last entry in force_list and 20
+        must be <b>strictly</b> less than step_size. This is so that we
+        make full use of the range of <i>f</i>. </li>
+    </ul>
+    <p>Based on these requirements, the force_list for a number of
+      different sizes are: </p>
+    <ul>
+      <li> If step_size = 0.4, then force_list should be [0, 0.4, 0.8,
+        1.2, ... ,19.6, 20] which contains 51 values </li>
+      <li>If step_size = 0.5, then force_list should be [0, 0.5, 1.0,
+        1.5, ... ,19.5, 20] which contains 41 values </li>
+      <li>If step_size = 0.7, then force_list should be [0, 0.7, 1.4,
+        2.1, ... ,17.5,18.2,18.9,19.6] which contains 29 values </li>
+      <li>If step_size = 0.9, then force_list should be [0, 0.9, 1.8,
+        2.7, ... ,18.0,18.9,19.8] which contains 23 values </li>
+    </ul>
+    <p>We want to make the program <i>flexible</i> so that it can
+      automatically generate force_list from a given value of step_size.
+      This flexibility will allow us to try out different values of
+      step_size. You may think this is complicated but we want to say
+      that it is <i>doable</i> and we will give you some hints in one
+      moment. We want to use this exercise to show you that with a bit
+      of thinking, you can make your programs flexible. </p>
+    <p>Hints: </p>
+    <ul>
+      <li>Since the entries in force_list are all integral multiples of
+        step_size, you can use step_size and range() to generate
+        force_list.</li>
+      <li>An important consideration is how many entries you need in the
+        sequence generated by range(). The number of entries that you
+        need can be calculated by a formula which depends on 20 (which
+        is the upper limit) and the step_size. You need to come out with
+        the formula and you can check whether your formula is correct by
+        using the examples above. There are two ways you can do that. </li>
+      <ul>
+        <li>You can make a mathematical argument to derive the formula.</li>
+        <li>You can use the table below, observe the pattern and derive
+          the formula. In particular, you want to find a relation
+          between the number of entries in force_list and the value of
+          20 divided by step_size, i.e. columns 3 and 4 in the table
+          below. </li>
+      </ul>
+      You may find that you need to fiddle the formula a few times to
+      get it right. There is nothing wrong with that, it is part of
+      learning.
+      <li>You may find the functions math.floor() and math.ceil() from
+        the math library useful</li>
+      <li>If you used // instead of the math functions you might have
+        noticed some odd behavior with the last value in force_list.
+        Check out this <a href="https://stackoverflow.com/questions/38588815/rounding-errors-in-python-floor-division" target="_blank">link</a> to learn why if you are curious. We
+        will discuss this later in the course. </li>
+    </ul>
+    <table width="100%" border="1">
+      <tbody>
+        <tr>
+          <td>Step size</td>
+          <td>Last value in force_list</td>
+          <td>The value of 20 divided by step_size</td>
+          <td>Number of entries in force_list</td>
+        </tr>
+        <tr>
+          <td>0.4</td>
+          <td>20 (= 50 * 0.4)</td>
+          <td>50.0</td>
+          <td>51</td>
+        </tr>
+        <tr>
+          <td>0.5</td>
+          <td>20 (= 40 * 0.5)</td>
+          <td>40.0</td>
+          <td>41</td>
+        </tr>
+        <tr>
+          <td>0.7</td>
+          <td>19.6 (= 28 * 0.7)</td>
+          <td>28.57</td>
+          <td>29</td>
+        </tr>
+        <tr>
+          <td>0.9</td>
+          <td>19.8 (= 22 * 0.9)</td>
+          <td>22.22 </td>
+          <td>23</td>
+        </tr>
+      </tbody>
+    </table>
+    <p><u>Task 3</u></p>
+    <p>Use force_list (which you create in Task 2) and the function that
+      your write in Task 1 to compute the extensions corresponding to
+      those force values in the force_list. </p>
+    <p>Use the two lists to plot extension versus force. </p>
+    <hr style="height: 2px; color: white;">
+    <p><b>At the End of the Lab</b> </p>
+    <p style="color: rgb(0, 0, 0); font-family: -webkit-standard;
+      font-style: normal; font-variant-caps: normal; font-weight:
+      normal; letter-spacing: normal; orphans: auto; text-align: start;
+      text-indent: 0px; text-transform: none; white-space: normal;
+      widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto;
+      -webkit-text-stroke-width: 0px;">You should be able to show your
+      tutor the three exercises. You should be comfortable with<span class="Apple-converted-space"> writing functions, plotting,
+        using for and list comprehension. <br>
+      </span></p>
+    <p style="color: rgb(0, 0, 0); font-family: -webkit-standard;
+      font-style: normal; font-variant-caps: normal; font-weight:
+      normal; letter-spacing: normal; orphans: auto; text-align: start;
+      text-indent: 0px; text-transform: none; white-space: normal;
+      widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto;
+      -webkit-text-stroke-width: 0px;">Finally, do not forget to
+      complete your online multiple choice question if you have not done
+      it yet.&nbsp;<span class="Apple-converted-space">&nbsp;</span></p>
+    <p style="color: rgb(0, 0, 0); font-family: -webkit-standard;
+      font-style: normal; font-variant-caps: normal; font-weight:
+      normal; letter-spacing: normal; orphans: auto; text-align: start;
+      text-indent: 0px; text-transform: none; white-space: normal;
+      widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto;
+      -webkit-text-stroke-width: 0px;">If you have completed everything,
+      please do not forget to logout. Simply double click on the "Log
+      Out" icon</p>
+    <p style="color: rgb(0, 0, 0); font-family: -webkit-standard;
+      font-style: normal; font-variant-caps: normal; font-weight:
+      normal; letter-spacing: normal; orphans: auto; text-align: start;
+      text-indent: 0px; text-transform: none; white-space: normal;
+      widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto;
+      -webkit-text-stroke-width: 0px;"></p>
+    <p> </p>
+    <p><br>
+    </p>
+    <p><br>
+    </p>
+    <p><br>
+    </p>
+    <p><br>
+    </p>
+    <br>
+  
+
+</body></html>

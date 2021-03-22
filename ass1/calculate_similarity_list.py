@@ -6,17 +6,21 @@ Created on --INSERT DATE HERE--
 @author: -- INSERT NAME HERE --
 
 """
-
+import calculate_similarity as cal
 
 def calculate_similarity_list(data_series, pattern):
+    idk_list = []
+    for i in range(len(data_series)):
+        idk = cal.calculate_similarity(data_series, pattern)
+        idk_list.append(idk)
+    return idk_list
+
+    """ 
+    data_series[1] * pattern[0] + data_series[2] * pattern[1] + 
+    data_series[3] * pattern[2] + data_series[4] * pattern[3] 
     
     
-    
-    
-    
-    
-    
-    """ Calculate the similarity measures between all possible data segments
+    Calculate the similarity measures between all possible data segments
     and the pattern.
 
     The function calculates the similarity measures, using the 
@@ -39,4 +43,3 @@ def calculate_similarity_list(data_series, pattern):
 
     """
 
-    # TODO: Insert your code here.
