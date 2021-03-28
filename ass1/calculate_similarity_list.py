@@ -10,9 +10,7 @@ import calculate_similarity as cal
 
 def calculate_similarity_list(data_series, pattern): 
     idk_list = []
-    
-    # This should calculate the similarities by calling the function
-    # Need to slice up the list to make it equal to pattern
+
     end = len(pattern)
     for s in range(len(data_series)):
         end = s + len(pattern)
