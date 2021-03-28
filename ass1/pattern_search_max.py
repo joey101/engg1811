@@ -8,6 +8,12 @@ Created on --INSERT DATE HERE--
 """
 
 def pattern_search_max(data_series, pattern, threshold):
+    
+    
+    
+    
+    
+    
     """ Search for the highest similarity measure that is also greater than
         or equal to the given threshold value and returns the index of that
         value.
