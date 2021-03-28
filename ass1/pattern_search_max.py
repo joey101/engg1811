@@ -1,15 +1,18 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Created on --INSERT DATE HERE--
+Created on -- 29/03/2021 --
 
-@author: -- INSERT NAME HERE --
+@author: -- Jawad Tanana --
 
 """
+import calculate_similarity_list as calc
 
 def pattern_search_max(data_series, pattern, threshold):
+    if len(data_series) < len(pattern):
+        return "Insufficient data"
     
-    
+    for s in data_series: 
     
     
     
