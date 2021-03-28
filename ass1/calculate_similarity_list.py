@@ -16,10 +16,14 @@ def calculate_similarity_list(data_series, pattern):
     start = 0
     end = len(pattern)
     for s in range(len(data_series)):
+        end = s + len(pattern)
         sliced = data_series[s:end]
         idk = cal.calculate_similarity(sliced, pattern)
+        if idk == 'Error':
+            break
         idk_list.append(idk)
-        end = s + len(pattern)
+        
+    return idk_list
     """ 
     data_series[1] * pattern[0] + data_series[2] * pattern[1] + 
     data_series[3] * pattern[2] + data_series[4] * pattern[3] 
