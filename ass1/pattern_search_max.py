@@ -9,12 +9,15 @@ Created on -- 29/03/2021 --
 import calculate_similarity_list as calc
 
 def pattern_search_max(data_series, pattern, threshold):
+   
     if len(data_series) < len(pattern):
         return "Insufficient data"
-    
-    for s in data_series: 
-    
-    
+    elif threshold > max(data_series):
+        return "Not detected"
+    else:
+        ans = calc.calculate_similarity_list(data_series, pattern)
+        highest_sim = ans.index(max(ans))
+    return highest_sim   
     
     
     """ Search for the highest similarity measure that is also greater than

@@ -81,8 +81,8 @@ print('TESTING FUNCTION: pattern_search_max')
 
 # Select Your Test, you can select one at a time
 # TODO change the test<number> to run a different test at a time
-#data_series, pattern, threshold, expected_answer = test1()
-data_series, pattern, threshold, expected_answer = test2()
+data_series, pattern, threshold, expected_answer = test1()
+#data_series, pattern, threshold, expected_answer = test2()
 #data_series, pattern, threshold, expected_answer = test3()
 
 # Let's call your function!
