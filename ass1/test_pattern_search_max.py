@@ -54,7 +54,6 @@ def test3():
     return data_series, pattern, threshold, expected_answer
 
 
-
 # --- CHECK OUTPUT ------------------
 # This function compares the value of two lists.
 # Check your output against expected output, and report the result

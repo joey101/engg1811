@@ -8,6 +8,29 @@ Created on --30/04/2021--
 """
 
 def pattern_search_multiple(data_values, pattern_width, threshold):
+    sim_list = []
+    if threshold > max(data_values):
+        return "Not detected"
+    
+    for num in range(len(data_values)):     
+        if data_values[num] > threshold:
+            if max(sim_list) < data_values[num]: 
+                sim_list.append(data_values.index(data_values[num]))
+                num += pattern_width
+            
+    
+    if not sim_list:
+        return "Insufficient data"
+            
+    return sim_list
+
+
+
+
+
+
+
+
     """ Searches the data_values for all the values that satisfy the criteria
         mentioned below and in the assignment specification document.
         The function returns the indices of these values.
@@ -41,4 +64,3 @@ def pattern_search_multiple(data_values, pattern_width, threshold):
 
     """
 
-    # TODO: Insert your code here.

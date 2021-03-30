@@ -9,7 +9,7 @@ Created on -- 29/03/2021 --
 import calculate_similarity_list as calc
 
 def pattern_search_max(data_series, pattern, threshold):
-   
+    
     if len(data_series) < len(pattern):
         return "Insufficient data"
     elif threshold > max(data_series):
