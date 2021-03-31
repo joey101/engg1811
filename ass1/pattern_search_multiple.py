@@ -11,31 +11,36 @@ def pattern_search_multiple(data_values, pattern_width, threshold):
     sim_list = []
     if threshold > max(data_values):
         return "Not detected"
-    
-    for num in range(len(data_values)):     
-        if data_values[num] > threshold:
-            if max(sim_list) < data_values[num]: 
-                sim_list.append(data_values.index(data_values[num]))
-                num += pattern_width
+
+    sliced = []
+    num = pattern_width
+    while num < len(data_values):
+        sliced = data_values[num - pattern_width:num + pattern_width]
+        print(sliced, "= ", data_values.index(max(sliced)))
+        if max(sliced) > threshold: 
+            sim_list.append(data_values.index(max(sliced)))
             
+        num = 1 + data_values.index(max(sliced)) + pattern_width
+
+if data_values.index(max(sliced)) - data_values.index(sliced[]) < pattern_width:
+
+
+        
+        # num += 1
+        print(num, "outside")
+        
+        
     
     if not sim_list:
         return "Insufficient data"
             
     return sim_list
 
-
-
-
-
-
-
-
     """ Searches the data_values for all the values that satisfy the criteria
         mentioned below and in the assignment specification document.
         The function returns the indices of these values.
 
-    Parameters
+    #Parameters
     ----------
     data_values : [float]
         A list of float values representing similarity measures. You are looking
