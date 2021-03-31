@@ -11,29 +11,15 @@ def pattern_search_multiple(data_values, pattern_width, threshold):
     sim_list = []
     if threshold > max(data_values):
         return "Not detected"
-
-    sliced = []
-    num = pattern_width
-    while num < len(data_values):
-        sliced = data_values[num - pattern_width:num + pattern_width]
-        print(sliced, "= ", data_values.index(max(sliced)))
-        if max(sliced) > threshold: 
-            sim_list.append(data_values.index(max(sliced)))
-            
-        num = 1 + data_values.index(max(sliced)) + pattern_width
-
-if data_values.index(max(sliced)) - data_values.index(sliced[]) < pattern_width:
-
-
-        
-        # num += 1
-        print(num, "outside")
-        
-        
-    
-    if not sim_list:
+    if len(data_values) < pattern_width:
         return "Insufficient data"
-            
+    sliced = []
+    for num in range(pattern_width, (len(data_values) - pattern_width - 1)):
+        if data_values[num] > threshold:
+            sliced = data_values[num - pattern_width:num + pattern_width]
+            if data_values[num] == max(sliced): 
+                sim_list.append(data_values.index(data_values[num]))
+
     return sim_list
 
     """ Searches the data_values for all the values that satisfy the criteria
