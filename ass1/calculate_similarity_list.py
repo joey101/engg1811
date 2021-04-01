@@ -5,22 +5,32 @@ Created on -- 28/03/2021 --
 
 @author: -- Jawad Tanana --
 
+The purpose of this program is to slice a data series into segments to 
+then calculate their similarities.
 """
+# This imports the first function.
 import calculate_similarity as cal
 
 def calculate_similarity_list(data_series, pattern): 
-    idk_list = []
-
+    sim_list = []
+    # Initialises the end of the splice
     end = len(pattern)
+
     for s in range(len(data_series)):
+        # Makes the end of the splice len(pattern) away from a value 
+        # to make it equal length with the data segment.
         end = s + len(pattern)
         sliced = data_series[s:end]
-        idk = cal.calculate_similarity(sliced, pattern)
-        if idk == 'Error':
+
+        # Assign the similar value returned from function 1 to a variable 
+        # called sim (similar)
+        sim = cal.calculate_similarity(sliced, pattern)
+        if sim == 'Error':
             break
-        idk_list.append(idk)
+        # Append the similar values to a list and return the list.
+        sim_list.append(sim)
         
-    return idk_list
+    return sim_list
     """ 
     data_series[1] * pattern[0] + data_series[2] * pattern[1] + 
     data_series[3] * pattern[2] + data_series[4] * pattern[3] 

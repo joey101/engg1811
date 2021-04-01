@@ -5,18 +5,33 @@ Created on --30/04/2021--
 
 @author: -- Jawad Tanana --
 
+The purpose of this program is to find peaks in the graphs.
 """
 
 def pattern_search_multiple(data_values, pattern_width, threshold):
     sim_list = []
+    sliced = []
+
+    # These sets of if statements check the data if they are 
+    # sufficient to be analysed or not.
     if threshold > max(data_values):
         return "Not detected"
     if len(data_values) < pattern_width:
         return "Insufficient data"
-    sliced = []
+    
+    # This loop starts pattern width from the start of data_values start 
+    # position, and ends a pattern width from the last value in data 
+    # values
     for num in range(pattern_width, (len(data_values) - pattern_width - 1)):
+        # The first if conidition checks if the number is above the threshold
         if data_values[num] > threshold:
+            # If the number is above the threshold pattern width infront
+            # and behind will be sliced out to be examined.
             sliced = data_values[num - pattern_width:num + pattern_width]
+            # The number that the counter is on will be assessed 
+            # if it is the max of the slice it will be appeneded, if 
+            # it is not the program will proceed to the next value in the
+            # list.
             if data_values[num] == max(sliced): 
                 sim_list.append(data_values.index(data_values[num]))
 
