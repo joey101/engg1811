@@ -6,7 +6,7 @@ ENGG1811 Lab
 Exercise on simulation
 """
 import numpy as np 
-import math
+import math 
 
 def sim_projectile(time_array,m,c,v0,theta0d): 
     """
@@ -61,18 +61,12 @@ def sim_projectile(time_array,m,c,v0,theta0d):
         position_x[k+1] = position_x[k] + velocity_x[k] * dt;   
         # Update y-position
         # Insert your Python code here 
-        position_y[k+1] = position_y[k] + velocity_y[k] * dt; 
-        
-        
         # Compute total speed 
         speed_total = math.sqrt(velocity_x[k]**2+velocity_y[k]**2);
         # Update x-velocity
         velocity_x[k+1] = velocity_x[k] - c*speed_total*velocity_x[k]/m*dt; 
         # Update y-velocity
-        # Insert your Python code here       
-        velocity_y[k+1] = velocity_y[k] - ((c/m)*speed_total*velocity_y[k]+g)*dt;
-        
-        
+        # Insert your Python code here         
   
     return position_x, position_y 
 
