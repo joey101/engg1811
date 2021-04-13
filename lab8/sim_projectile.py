@@ -10,7 +10,6 @@ import math
 
 def sim_projectile(time_array,m,c,v0,theta0d): 
     """
-     
     Purpose: To simulate a projectile given its mass (m), 
              drag coefficient (c), initial velocity v0 and
              its projectile angle theta0d in degrees
@@ -77,27 +76,29 @@ def sim_projectile(time_array,m,c,v0,theta0d):
     return position_x, position_y 
 
 
-#def find_landing_pos_time(time_array,position_x,position_y,landing_level):
-#    """
-#
-#    Purpose: To determine the landing position and landing time 
-#             for a given landing level
-#     
-#     Inputs:
-#           time_array     (numpy array)  time 
-#           position_x     (numpy array)  x-coordinates 
-#           position_y     (numpy array)  y-coordinates  
-#           landing_level  desired landing level 
-#     
-#     Outputs:
-#           landing_position    The landing position is the x-coordinate at
-#                               the point where the y-coordinate is just
-#                               greater than the landing level and is falling
-#                               down
-#           landing_time        time at the landing_position 
-#
-#    We use the last position which is just greater than landing level  
-#    """
-#    # Insert your Python code here 
-#
-#    return landing_position,landing_time
+def find_landing_pos_time(time_array,position_x,position_y,landing_level):
+    """
+    Purpose: To determine the landing position and landing time 
+            for a given landing level
+     
+     Inputs:
+           time_array     (numpy array)  time 
+           position_x     (numpy array)  x-coordinates 
+           position_y     (numpy array)  y-coordinates  
+           landing_level  desired landing level 
+     
+     Outputs:
+           landing_position    The landing position is the x-coordinate at
+                               the point where the y-coordinate is just
+                               greater than the landing level and is falling
+                               down
+           landing_time        time at the landing_position 
+
+    We use the last position which is just greater than landing level  
+    """
+    # Insert your Python code here 
+    where_pos = np.max(np.where(position_y >= landing_level))
+    landing_position = position_x[where_pos]
+    landing_time = time_array[where_pos]
+
+    return landing_position,landing_time

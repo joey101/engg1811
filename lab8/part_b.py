@@ -11,7 +11,8 @@ px = np.array([2.4, 2.9, 5.7, 6.6, 7.5, 8.4, 9.3])
 py = np.array([9.7, 10.1, 10.5, 10.2, 10.1, 9.9, 9.8])
 
 just_before = np.max(np.where(py >= 10))
+position = px[just_before]
+time_instance = tv[just_before]
 
 
-
-print(just_before)
+print(position, time_instance)
