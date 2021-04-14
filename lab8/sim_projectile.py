@@ -97,8 +97,8 @@ def find_landing_pos_time(time_array,position_x,position_y,landing_level):
     We use the last position which is just greater than landing level  
     """
     # Insert your Python code here 
-    where_pos = np.max(np.where(position_y >= landing_level))
-    landing_position = position_x[where_pos]
-    landing_time = time_array[where_pos]
+    where_height = np.max(np.where(position_y >= landing_level))
+    landing_position = position_x[where_height]
+    landing_time = time_array[where_height]
 
     return landing_position,landing_time
