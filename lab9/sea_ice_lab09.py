@@ -90,13 +90,10 @@ print('5. Biggest Decrease = ', difference)
 # %%
 
 # Part 6 
-
-
-
-
-
-
-
+peak = np.argmax(data_sea_ice, axis=1)
+peak_unique = np.unique(peak)
+#sum_peak = np.sum(counts)
+print('peak = ', peak, 'Unique', peak_unique)
 
 
 
