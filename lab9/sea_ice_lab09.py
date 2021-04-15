@@ -91,10 +91,9 @@ print('5. Biggest Decrease = ', difference)
 
 # Part 6 
 peak = np.argmax(data_sea_ice, axis=1)
-peak_unique = np.unique(peak)
-#sum_peak = np.sum(counts)
-print('peak = ', peak, 'Unique', peak_unique)
-
+peak_unique,counts = np.unique(peak,return_counts=True)
+high_months = months[peak_unique[np.argmax(counts)]]
+print('6. Highest Half Month = ', high_months)
 
 
 
