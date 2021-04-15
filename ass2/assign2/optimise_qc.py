@@ -28,7 +28,22 @@ import numpy as np
 
 def optimise_qc(discomfort_array, inerter_array, damping_coefficient_array, discomfort_upper_limit):
     
-  
+    #print('discomfort = ', discomfort_array)
+    
+    min_inerter = np.min(inerter_array)
+    min_damping_coefficient = np.min(damping_coefficient_array)
+    print("minimum = ", min_inerter, min_damping_coefficient)
+    print(discomfort_array)
+    
+    discomfort_inerter = np.argmax(discomfort_array, axis=1)
+    discomfort_damp = np.argmax(discomfort_array, axis=0)
+    print('interter and damp =', discomfort_inerter, discomfort_damp)
+    print(np.shape(discomfort_array))
+    
+    max_inerter = inerter_array[discomfort_inerter]
+    max_damping_coefficient = damping_coefficient_array[discomfort_damp]
+    print("max = ", max_inerter, max_damping_coefficient)
+    
     
     return min_inerter, min_damping_coefficient, \
            max_inerter, max_damping_coefficient

@@ -22,8 +22,9 @@ import numpy as np
 
 def calc_discomfort(vs , dt):
     
- 
-    
+    acceleration = np.diff(vs,n=0) / dt    
+    discomfort = np.sum(np.diff(acceleration,n=1)**2)
+        
     return discomfort
 
 

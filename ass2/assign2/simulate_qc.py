@@ -37,9 +37,26 @@ def simulate_qc(time_array, y_road, ms, mu, kt, k, b, c) :
     # Calculate time increment (dt)
     dt = time_array[1] - time_array[0]
     
-
+    f = np.zeros_like(time_array)
+    h = np.zeros_like(time_array)
     
+    ys = np.zeros_like(time_array)
+    yu = np.zeros_like(time_array)
+    vs = np.zeros_like(time_array)
+    vu = np.zeros_like(time_array)
     
+    for time in range(len(time_array) - 1):
+        f[time] = c * vs[time] - c * vu[time] + k * ys[time] - k * yu[time]
+        h[time] = f[time] - kt * yu[time] + kt * y_road[time]        
+        
+        
+        ys[time + 1] = ys[time] + vs[time] * dt 
+        yu[time + 1] = yu[time] + vu[time] * dt
+        vs[time + 1] = vs[time] + (((-(mu+b) * f[time] + b * h[time])) / \
+                       (ms * mu + (ms + mu) * b)) * dt
+        vu[time + 1] = vu[time] + (((-b * f[time] + (ms + b) * h[time])) / \
+                       (ms * mu + (ms + mu) * b)) * dt
+        
     return ys, yu, vs, vu 
     
  
