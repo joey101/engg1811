@@ -12,7 +12,7 @@ import matplotlib.pyplot as plt
 
 # %% Preliminary processing 
 # Load data and store it as a numpy array called data_sea_ice
-data_sea_ice = np.loadtxt('/home/bladerunner/Documents/engg1811/lab9/sea_ice/sea_ice.txt')
+data_sea_ice = np.loadtxt('E:\OneDrive - UNSW\Coding\engg1811\lab9\\sea_ice\sea_ice.txt')
 
 # Extract information on year from data_sea_ice
 years = data_sea_ice[:,0];   # first column
