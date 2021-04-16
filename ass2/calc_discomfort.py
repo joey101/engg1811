@@ -22,9 +22,16 @@ import numpy as np
 
 def calc_discomfort(vs , dt):
     
-    acceleration = np.diff(vs,n=0) / dt    
-    discomfort = np.sum(np.diff(acceleration,n=1)**2)
-        
+    # Double recursive function 
+    acceleration = np.diff(vs,n=1) / dt    
+    
+    # Sum to make it scalar
+    discomfort = np.sum(np.diff(acceleration,n=0)**2)
+
+
+    #print("Acceleration = ", acceleration)
+    #print("Discomfort = ", discomfort)
+    
     return discomfort
 
 

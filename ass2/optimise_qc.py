@@ -27,23 +27,47 @@ Output:
 import numpy as np
 
 def optimise_qc(discomfort_array, inerter_array, damping_coefficient_array, discomfort_upper_limit):
+
     
-    #print('discomfort = ', discomfort_array)
+#   MINIMUM FUNCTIONS:   
+    # Find the smallest value and its coordinates.
+    minimum = np.min(discomfort_array)
+    min_where = np.argwhere(discomfort_array == minimum)
     
-    min_inerter = np.min(inerter_array)
-    min_damping_coefficient = np.min(damping_coefficient_array)
-    print("minimum = ", min_inerter, min_damping_coefficient)
-    print(discomfort_array)
+    # Access coordinates.
+    min_in = min_where[0][0]
+    min_di = min_where[0][1]
     
-    discomfort_inerter = np.argmax(discomfort_array, axis=1)
-    discomfort_damp = np.argmax(discomfort_array, axis=0)
-    print('interter and damp =', discomfort_inerter, discomfort_damp)
-    print(np.shape(discomfort_array))
+    # Use Coordinates as index for the value in the row and column.
+    min_inerter = inerter_array[min_in]
+    min_damping_coefficient = damping_coefficient_array[min_di]
+
     
-    max_inerter = inerter_array[discomfort_inerter]
-    max_damping_coefficient = damping_coefficient_array[discomfort_damp]
-    print("max = ", max_inerter, max_damping_coefficient)
+    # print(min_in, min_di)
+    # print('discomfort = ', discomfort_array)
+    # print("minimum = ", min_inerter, min_damping_coefficient, minimum, where)
+
+# ----------------------------------------------------------------------------
+#   MAX FUNCTIONS
     
+    # Sliced the values underneath the limit to find the maximum in the 
+    # sub-list. Then find the coordinates of the max number in bigger array.
+    sliced_limit = discomfort_array[discomfort_array <= discomfort_upper_limit]
+    maximum = np.max(sliced_limit)
+    max_where = np.argwhere(discomfort_array == maximum)
+    
+    # Access coordinates.
+    max_in = max_where[0][0]
+    max_di = max_where[0][1] 
+    
+    # Use Coordinates as index for the value in the row and column.
+    max_inerter = inerter_array[max_in]
+    max_damping_coefficient = damping_coefficient_array[max_di]
+   
+    
+   #print('Inerter and Damp =', max_inerter,max_damping_coefficient, max_where)
+    #test = np.max(discomfort_array)
+    #print('test', test, np.shape(test))
     
     return min_inerter, min_damping_coefficient, \
            max_inerter, max_damping_coefficient

@@ -33,24 +33,30 @@ import simulate_qc as sqc
 def explore_qc(time_array, y_road, ms, mu, kt, k, 
                inerter_array, damping_coefficient_array):
     
-    # print('inerter', inerter_array, 'damping_co', damping_coefficient_array)
+    # Calculate time increment (dt)
+    dt = time_array[1] - time_array[0]   
     
+    # Created 2-D array of the lengths inerter array (row) and damping 
+    # coefficient (column) filled with zero.
     discomfortLevels = np.zeros((len(inerter_array),\
                                  len(damping_coefficient_array)))
     
-    dt = time_array[1] - time_array[0]   
-    
+    # Loop first time through rows    
     for i in range(len(inerter_array)):
+        # Loop through the columns
         for j in range(len(damping_coefficient_array)):
-            
+            # Get values needed for discomfort function
+            # Back Slash is to make it within 80 border.            
             ys, yu, vs, vu = sqc.simulate_qc(time_array,y_road,ms,mu,kt,k,\
                                              inerter_array[i],\
                                                  damping_coefficient_array[j])
 
+            # Fill 2-D array with values calculated for discomfort.
             discomfortLevels[i][j] = cd.calc_discomfort(vs, dt)
-
+            
+    
+    # print('inerter', inerter_array, 'damping_co', damping_coefficient_array)
     # print('discomfort = ', discomfortLevels, np.shape(discomfortLevels))
     
-
     return discomfortLevels 
 

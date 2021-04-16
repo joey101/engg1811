@@ -37,6 +37,7 @@ def simulate_qc(time_array, y_road, ms, mu, kt, k, b, c) :
     # Calculate time increment (dt)
     dt = time_array[1] - time_array[0]
     
+    # Initiate empty arrays same size as time array.
     f = np.zeros_like(time_array)
     h = np.zeros_like(time_array)
     
@@ -45,10 +46,11 @@ def simulate_qc(time_array, y_road, ms, mu, kt, k, b, c) :
     vs = np.zeros_like(time_array)
     vu = np.zeros_like(time_array)
     
+    # Looping through size of time array because everything is the same size.
     for time in range(len(time_array) - 1):
+        # Functions provided by Ashesh.
         f[time] = c * vs[time] - c * vu[time] + k * ys[time] - k * yu[time]
         h[time] = f[time] - kt * yu[time] + kt * y_road[time]        
-        
         
         ys[time + 1] = ys[time] + vs[time] * dt 
         yu[time + 1] = yu[time] + vu[time] * dt
