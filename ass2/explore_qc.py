@@ -38,7 +38,7 @@ def explore_qc(time_array, y_road, ms, mu, kt, k,
     
     # Created 2-D array of the lengths inerter array (row) and damping 
     # coefficient (column) filled with zero.
-    discomfortLevels = np.zeros((len(inerter_array),\
+    discomfort_levels = np.zeros((len(inerter_array),\
                                  len(damping_coefficient_array)))
     
     # Loop first time through rows    
@@ -52,11 +52,11 @@ def explore_qc(time_array, y_road, ms, mu, kt, k,
                                                  damping_coefficient_array[j])
 
             # Fill 2-D array with values calculated for discomfort.
-            discomfortLevels[i][j] = cd.calc_discomfort(vs, dt)
+            discomfort_levels[i][j] = cd.calc_discomfort(vs, dt)
             
     
     # print('inerter', inerter_array, 'damping_co', damping_coefficient_array)
     # print('discomfort = ', discomfortLevels, np.shape(discomfortLevels))
     
-    return discomfortLevels 
+    return discomfort_levels 
 
