@@ -65,7 +65,7 @@ def optimise_qc(discomfort_array, inerter_array, damping_coefficient_array, disc
     max_damping_coefficient = damping_coefficient_array[max_di]
    
     
-   #print('Inerter and Damp =', max_inerter,max_damping_coefficient, max_where)
+    print('Inerter and Damp =', max_inerter,max_damping_coefficient, max_where)
     #test = np.max(discomfort_array)
     #print('test', test, np.shape(test))
     
