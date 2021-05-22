@@ -47,8 +47,9 @@ data collection in the variable ans_task1 in the file q2.py (provided).
 '''
 
 
-ans_task1 = 
+ans_task1 = np.mean(data_sea_ice)
 
+print(ans_task1)
 
 
 ######   Task-2 ######   
@@ -58,8 +59,8 @@ the overall average calculated in the variable ans_task1 (during Task-1),
 and save your answer in the variable ans_task2 in the file q2.py (provided).
 '''
 
-ans_task2 = 
-
+ans_task2 = np.sum(data_sea_ice > ans_task1, axis=1)
+print(ans_task2)
 
 
 ######   Task-3 ######   
@@ -69,8 +70,8 @@ years 2000-2009 (inclusive), and save your answer in the variable
 ans_task3 in the file q2.py (provided).
 '''
 
-ans_task3 = 
-
+#ans_task3 = 
+#print(ans_task3)
 
 ################   End of the program  ################   
 
