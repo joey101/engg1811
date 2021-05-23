@@ -4,7 +4,6 @@
     The goal is to log key strokes with the date and time for each sentence.
 
 """
-
 import keyboard as key
 import numpy as np
 from datetime import datetime as t
@@ -23,9 +22,10 @@ with open("E:\OneDrive - UNSW\Coding\python\keylogger\log.txt",'a') as logging:
     current_t = now.strftime("[%H:%M:%S]: ")
     
     # This appends to a file.
-    logging.write("\n")
+    
     logging.write(current_dt)
     logging.write("First line contains")
+    logging.write("\n")
 
 
 
