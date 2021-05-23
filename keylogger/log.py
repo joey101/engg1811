@@ -9,7 +9,11 @@ import keyboard as key
 import numpy as np
 from datetime import datetime as t
 
-with open("/home/bladerunner/Documents/python/keylogger/log.txt",'a') as logging:
+
+# For Linux Directory
+#with open("/home/bladerunner/Documents/python/keylogger/log.txt",'a') as logging:
+# For Windows Directory
+with open("E:\OneDrive - UNSW\Coding\python\keylogger\log.txt",'a') as logging:
     # This gets the date and time in 
     # dd/mm/yyyy and HH:MM:SS
     now = t.now()
@@ -19,7 +23,8 @@ with open("/home/bladerunner/Documents/python/keylogger/log.txt",'a') as logging
     current_t = now.strftime("[%H:%M:%S]: ")
     
     # This appends to a file.
-    logging.write(current_t)
+    logging.write("\n")
+    logging.write(current_dt)
     logging.write("First line contains")
 
 
