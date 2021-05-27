@@ -1,9 +1,1 @@
-[23/05/2021 12:47:24]: First line contains
-[23/05/2021 12:47:43]: First line contains
-[23/05/2021 12:47:45]: First line contains
-[23/05/2021 12:47:45]: First line contains
-[23/05/2021 12:47:46]: First line contains
-[23/05/2021 12:47:47]: First line contains
-[23/05/2021 12:47:47]: First line contains
-[27/05/2021 20:35:45]: [27/05/2021 20:35:56]: 
-[27/05/2021 20:39:22]: 
+'j''j'Key.esc'j''j''a''j''a''w''j''a''w''a''j''a''w''a'Key.esc
