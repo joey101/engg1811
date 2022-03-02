@@ -1,9 +1,20 @@
-import data_store
+from data_store import data_store
 
 num = 0
-idk = data_store.get()
+channel = data_store.get()
+number = channel['users'][0]['id']
+
+ch_info = {
+    'id': len(channel['channels']) + 1,
+    'name': "new_chan",
+    'status': "public",
+    'owner': channel['users'][0]['id'],
+    'members': '',
+}
+
+channel['channels'].append(ch_info)
+
+data_store.set(channel)
 
 
-data['users'][num]['id'] = 5
-store = data['users'][num]['id']
-print(store)
+print(channel)

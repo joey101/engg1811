@@ -24,7 +24,7 @@ data = {
 ## YOU ARE ALLOWED TO CHANGE THE BELOW IF YOU WISH
 class Datastore:
     def __init__(self):
-        self.__store = initial_object
+        self.__store = data
 
     def get(self):
         return self.__store
