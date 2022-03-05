@@ -2,21 +2,25 @@ data = {
     'users': [
         {
             'id': 1,
-            'name' : 'user1',
+            'name' : 'john',
+            'email': 'john.tanana@gmail.com',
         },
         {
             'id': 2,
             'name' : 'user2',
+            'email': 'jawad.tanana@gmail.com',
         },
     ],
     'channels': [
         {
             'id': 1,
             'name' : 'channel1',
+            'members': [1,2,3],
         },
         {
             'id': 2,
             'name' : 'channel2',
+            'members': [1,2,3],
         },
     ],
 }
