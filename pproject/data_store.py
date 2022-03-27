@@ -1,28 +1,23 @@
 data = {
-    'users': [
-        {
-            'id': 1,
-            'name' : 'john',
-            'email': 'john.tanana@gmail.com',
-        },
-        {
-            'id': 2,
-            'name' : 'user2',
-            'email': 'jawad.tanana@gmail.com',
-        },
-    ],
     'channels': [
         {
             'id': 1,
-            'name' : 'channel1',
-            'members': [1,2,3],
+            'name': 'name',
+            'status': 'is_public',
+            'owner': 'auth_user_id',
+            'members': 1,
+            'messages': ["jawad", "HI"]
         },
         {
-            'id': 2,
-            'name' : 'channel2',
-            'members': [1,2,3],
-        },
+            'id': 'len(ds[])',
+            'name': 'name',
+            'status': 'is_public',
+            'owner': 'auth_user_id',
+            'members': ['auth_user_id'],
+            'messages': ["jawad", "HI"]
+        }
     ],
+    'users': []
 }
 
 ## YOU ARE ALLOWED TO CHANGE THE BELOW IF YOU WISH

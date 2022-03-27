@@ -1,32 +1,60 @@
 from data_store import data_store
 
 num = 0
-user_info = data_store.get()
-print(user_info['users'][0]['name'])
+ds = data_store.get()
 
-'''
-ch_info = {
-    'id': len(user_info['channels']) + 1,
-    'name': "new_chan",
-    'status': "public",
-    'owner': user_info['users'][0]['id'],
-    'members': 'jawad',
+u_id = len(ds['users'])
+
+Info = {
+    'firstname' : 'name_first',
+    'lastname' : 'name_last',
+    'email' : 'jawad.tnana@gmail.com',
+    'password' : 'password',
+    'username' : '' 
 }
+
+
+print(ds['channels'])
+
+
+
+
+
+"""
+
+
+
+
+idx = 0
+
+store = ds['Users']
+for user in store:
+        print(store[user]['email']) 
+        '''if user[idx]['email'] == 'jawad.tnana@gmail.com':
+            print(user['email']) 
+        else:
+            idx +=1'''
+    """
+'''
+print(ds)
+
+
+print(ds['Users'][u_id]['username'])
 '''
 
-#print(ch_info['members'])
-
-email = 'jawad.tanana@gmail.com'
-for person in user_info['channels']:
-    print(person['members'][2])
-    '''store_user_email = user_info['users'][person]['email']
-
-    if email == store_user_email:
-        number = user_info['users'][person]['id']'''
-
-#channel['channels'].append(ch_info)
-
-data_store.set(user_info)
 
 
-print(number)
+#print(ds['Users'][1]['firstname'])
+
+
+
+
+
+
+
+
+
+
+
+
+
