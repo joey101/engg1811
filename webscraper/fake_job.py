@@ -22,4 +22,6 @@ results = soup.find(id="ResultsContainer")
 job_elements = results.find_all("div", class_="card-content")
 
 for i in job_elements:
-    print(i.find("h2", class_="title"))
+    job_title = i.find("h2", class_="title")
+    print(job_title.text.strip())
+    
