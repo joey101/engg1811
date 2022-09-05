@@ -2,27 +2,33 @@
 # as an introduction to webscraping and starting the journey.
 
 # Imports the library that helps scrape and request for HTML elements of the 
+# website.
 import requests
 from bs4 import BeautifulSoup
 
-
 # The URL to be scraped.
-URL = "https://pythonjobs.github.io/"
+URL = "https://au.indeed.com/jobs?q=robotics+engineer"
 
 #Requests data from the "server" i.e the URL
-page = requests.get(URL)
+headers = {"User-Agent": "Mozilla/5.0 (X11; Linux x86_64; rv:78.0)   Gecko/20100101 Firefox/78.0", 
+"Referer": "https://www.google.com"}
+
+page = requests.get(URL, headers=headers)
+
 # Testing 
-#print(page.text)
+print(page.status_code)
 
 # Takes html content as input. (used .content instead of .text in order to get
-# raw bytes)
 
 soup = BeautifulSoup(page.content, "html.parser")
-results = soup.find("section", class_="job_list")
-#print(results.text)
+#print(soup.prettify())
+results = soup.find('a')
+print(results)
+"""
 
-job_elements = results.find_all("div", class_="job")
-# print(job_elements)
+job_elements = results.find_all("ul", class_="jobsearch-ResultsList")
+print(job_elements)
+
 count = 1
 for i in job_elements:
     # Finds the HTML class/elemnt that we want to read, then strips it to just 
@@ -31,3 +37,4 @@ for i in job_elements:
     
     print(str(count)+ ".", job_title.text.strip())
     count += 1
+"""
